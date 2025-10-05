@@ -1,8 +1,8 @@
 import time
 import requests
 import logging
-from kafka_producer import NewsProducer
-from ..config import REDDIT_SUBREDDIT_URL
+from .kafka_producer import NewsProducer
+from .config import REDDIT_SUBREDDIT_URL
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)

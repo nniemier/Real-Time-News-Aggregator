@@ -2,7 +2,7 @@ import time
 import feedparser
 import logging
 from kafka_producer import NewsProducer
-from ..config import RSS_FEEDS
+from .config import RSS_FEEDS
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)

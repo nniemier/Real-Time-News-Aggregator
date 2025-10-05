@@ -1,9 +1,9 @@
 import time
 import logging
-from hacker_news_producer import HackerNewsProducer
-from reddit_producer import RedditProducer
-from rss_producer import RSSProducer
-from ..config import RSS_FEEDS
+from .hacker_news_producer import HackerNewsProducer
+from .reddit_producer import RedditProducer
+from .rss_producer import RSSProducer
+from .config import RSS_FEEDS
 
 logging.basicConfig(
     level=logging.INFO,
