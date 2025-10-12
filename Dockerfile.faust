@@ -1,0 +1,19 @@
+FROM python:3.9-slim
+
+WORKDIR /app
+
+# Install dependencies
+COPY requirements-faust.txt .
+RUN pip install --no-cache-dir -r requirements-faust.txt
+
+# Copy application files
+COPY faust_worker/__init__.py .
+COPY faust_worker/faust_config.py .
+COPY faust_worker/models.py .
+COPY faust_worker/news_processor.py .
+
+# Create .env file with default values (will be overridden by docker-compose)
+RUN echo "KAFKA_BOOTSTRAP_SERVERS=kafka:9093" > .env
+
+# Run Faust worker
+CMD ["faust", "-A", "news_processor", "worker", "-l", "info"]
